@@ -1,5 +1,6 @@
 proc datasets noprint library=WORK kill; run; quit;
 
+%let amount = 100000;
 %let path = 'https://api.dane.gov.pl/resources/28395,kwartalne-wskazniki-cen-towarow-i-usug-konsumpcyjnych-od-1995-roku/csv';
 filename csv temp ENCODING=UTF8;
 
@@ -106,7 +107,29 @@ proc sql noprint;
 %createSingleBaseIndex;
 
 data tab_inflation;
-merge tab_dependent_index tab_single_base_index;
+ merge tab_dependent_index tab_single_base_index;
+ by id;
+ id = id + 1;
+run;
+
+proc sql noprint;
+ select min(rok) - 1 into: prevYear from tab_inflation
+;quit;
+
+proc sql;
+ insert into tab_inflation(id, Rok, indeks_lancuchowy_cpi) VALUES
+ (1, &prevYear, 100)
+;quit;
+
+data tab_inflation;
+ set tab_inflation;
+ Wartosc_w_poczatkowym_roku = &amount;
+ Realna_sila_nabywcza = round(
+ 	(Wartosc_w_poczatkowym_roku / coalesce(Indeks_jednopodstawowy_cpi, Indeks_lancuchowy_cpi)) * 100, 0.1
+ );
+ Procent_sily_nabywczej = round((Realna_sila_nabywcza/Wartosc_w_poczatkowym_roku) * 100, 0.1);
+run;
+
+proc sort data = tab_inflation;
 by id;
-id = id + 1;
 run;
