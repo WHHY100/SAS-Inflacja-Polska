@@ -1,12 +1,8 @@
 /*Czyszczenie worka z poprzednich tabel tymczasowych*/
 proc datasets noprint library=WORK kill; run; quit;
 
-<<<<<<< HEAD
-%let amount = 100000;
-=======
 %let amount = 500;
 /*Sciezka do csv - dane z rządowego portalu*/
->>>>>>> d0066558d5600d523853cb212315cfd5f2bf4fd2
 %let path = 'https://api.dane.gov.pl/resources/28395,kwartalne-wskazniki-cen-towarow-i-usug-konsumpcyjnych-od-1995-roku/csv';
 /*Definiowanie pliku tymczasowego z odpowiednim kodowaniem*/
 filename csv temp ENCODING=UTF8;
@@ -51,7 +47,7 @@ proc sql;
  select
  	Rok
  	,round(mean(Indeks_lancuchowy), .01) as Indeks_lancuchowy_cpi
- from tab_previous_period
+ from tab_previous_year
  group by Rok
  order by rok
 ;quit;
