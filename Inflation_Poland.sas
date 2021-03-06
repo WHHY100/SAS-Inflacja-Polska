@@ -131,5 +131,5 @@ data tab_inflation;
 run;
 
 proc sort data = tab_inflation;
-by id;
+by id Rok;
 run;
