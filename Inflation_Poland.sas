@@ -62,7 +62,7 @@ proc sql noprint;
  select max(id) into: maxid from tab_dependent_index
 ;quit;
 
-/*Obliczanie indeksy jednopodstawowego - poprzedni jednopodstawowy * obecny łańcuchowy*/
+/*Obliczanie indeksu jednopodstawowego - poprzedni jednopodstawowy * obecny łańcuchowy*/
 %macro createSingleBaseIndex(tab);
  %do i = 1 %to &maxId;
   %if &i = 1 %then %do;
