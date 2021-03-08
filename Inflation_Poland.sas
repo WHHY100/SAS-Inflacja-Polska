@@ -4,6 +4,8 @@ proc datasets noprint library=WORK kill; run; quit;
 %let amount = 500;
 /*Sciezka do csv - dane z rządowego portalu*/
 %let path = 'https://api.dane.gov.pl/resources/28395,kwartalne-wskazniki-cen-towarow-i-usug-konsumpcyjnych-od-1995-roku/csv';
+/*Sciezka do eksportu img*/
+%let pathImgExport = /folders/myfolders/img/;
 /*Definiowanie pliku tymczasowego z odpowiednim kodowaniem*/
 filename csv temp ENCODING=UTF8;
 
@@ -184,9 +186,9 @@ data tab_inflation;
  If flaga_500 = 1 Then Utrata_wartosci_500 = round(&amount - Realna_sila_nabywcza_500, 0.1);
 run;
 
-/*Eksport wykresy realnej wartości pieniądza*/
+/*Eksport wykresu realnej wartości pieniądza*/
 ods graphics on /width=800px reset=index imagename='Realna_sila_nabywcza_pieniadza' imagefmt=jpg;
-ods listing gpath="/folders/myfolders/img/";
+ods listing gpath="&pathImgExport";
 proc sgplot data=tab_inflation;
 series x = Rok y = Realna_sila_nabywcza/lineattrs=(color=red)
 	legendlabel="Realna siła nabywcza kwoty &amount(rok bazowy =&prevYear)"
@@ -205,9 +207,9 @@ set tab_inflation;
 Indeks_lancuchowy_cpi_w = round((Indeks_lancuchowy_cpi/100 - 1)*100, .01);
 run;
 
-/*Eksport wykresy inflacji*/
+/*Eksport wykresu inflacji*/
 ods graphics on /width=800px reset=index imagename='Inflacja' imagefmt=jpg;
-ods listing gpath="/folders/myfolders/img/";
+ods listing gpath="&pathImgExport";
 proc sgplot data=tab_inflation_chart;
 series x = Rok y = Indeks_lancuchowy_cpi_w/legendlabel="Inflacja w poszczególnych latach"
 	datalabel = Indeks_lancuchowy_cpi_w;
@@ -231,7 +233,7 @@ run;
 title "<h1>Realna wartość pieniądza</h1>";
 ods graphics on / width=800px imagefmt=jpg imagemap=on imagename="Tabela_wartosc_pieniadza" border=off;
 options printerpath=png nodate nonumber;
-ods printer file="/folders/myfolders/img/Tabela_wartosc_pieniadza.jpg" style=barrettsblue;
+ods printer file="&pathImgExport.Tabela_wartosc_pieniadza.jpg" style=barrettsblue;
 proc print data=tab_inflation_exp(keep=Rok Realna_sila_nabywcza Realna_sila_nabywcza_500);
 run;
 ods printer close;
