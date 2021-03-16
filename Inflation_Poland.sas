@@ -236,7 +236,7 @@ where mod(id, 2) = 0 or id=1 or id = &maxId;
 run;  
 
 /*Eksport tabeli realnej wartości pieniądza*/
-title "<h1>Realna wartość pieniądza</h1>";
+title "Realna wartość pieniądza";
 ods graphics on / width=672px imagefmt=jpg imagemap=on imagename="Tabela_wartosc_pieniadza" border=off;
 options printerpath=png nodate nonumber;
 ods printer file="&pathImgExport.Tabela_wartosc_pieniadza.jpg" style=barrettsblue;
