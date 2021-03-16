@@ -67,6 +67,6 @@ rozpowszechnianiem się kryptowalut będą one coraz bardziej restrykcyjnie trak
 
 ## Technologia
 
-Oprogramowanie: *SAS Enterprise Guide*
+Oprogramowanie: *SAS® University Edition*
 
 Wersja: *9.4_M6*
