@@ -6,11 +6,11 @@
 ## Info
 
 Dane zostały pobrane z serwisu: https://dane.gov.pl. Serwis zapewnia ogólny dostęp do informacji udostępnianych przez wybrane organizacje publiczne. Bezpośredni odnośnik do
-danych użytych w projekcie: https://api.dane.gov.pl/resources/28395,kwartalne-wskazniki-cen-towarow-i-usug-konsumpcyjnych-od-1995-roku/csv
+danych użytych w projekcie: https://api.dane.gov.pl/media/resources/20220511/Kwartalne_wska%C5%BAniki_cen_towar%C3%B3w_i_us%C5%82ug_konsumpcyjnych_od_1995_roku.csv
 
 ## Inflacja
 
-Poniższy wykres prezentuje poziom inflacji od 1994 do 2020 roku. Wskaźnik cen towarów i usług konsumpcyjnych najwyższą wartość osiągnął w roku 1995. Wartość wskaźnika w tym 
+Poniższy wykres prezentuje poziom inflacji od 1994 do 2022 roku. Wskaźnik cen towarów i usług konsumpcyjnych najwyższą wartość osiągnął w roku 1995. Wartość wskaźnika w tym 
 okresie oscylowała wokół 30%. Co oznacza, że w roku 1995 średnie ceny towarów i usług były wyższe o około 30% niż w okresie poprzednim. Wartość najniższa odnotowana została 
 w roku 2013 i wynosiła około -1%.
 
@@ -29,7 +29,7 @@ nie oznacza to zaprzestania spadku wartości pieniądza w następnych okresach, 
 ![wykres inflacji](https://github.com/WHHY100/SAS_INFLATION_POLAND/blob/main/img/Realna_sila_nabywcza_pieniadza.jpg?raw=true)
 
 Na wykresie zaobserwować można również przerywaną niebieską linię - przedstawia realną siłę nabywczą kwoty 500 pln z roku 2015 po wprowadzeniu programu 500+ przez aktualny rząd 
-RP. Kwota 500 złotych w roku 2020 jest warta 458 złotych w cenach z roku 2015. Na wykresie pierwszym widać również stały wzrost poziomu 
+RP. Kwota 500 złotych w roku 2022 jest warta 398 złotych w cenach z roku 2015. Na wykresie pierwszym widać również stały wzrost poziomu 
 inflacji od roku 2015 do ostatniego okresu analizy. Czy zjawisko jest spowodowane programem 500+ i rozdawnictwem polskiego rządu? W tej chwili ciężko powiedzieć, 
 warto zauważyć, że w latach 2000 - 2010 obserwowaliśmy wyższe wartości wskaźnika cen i usług konsumpcyjnych. W obecnej chwili można stwierdzić, że program 500+ i 
 jego wpływ na poziom inflacji nie jest statystycznie istotny. Należy obserwować notowania wskaźnika w latach kolejnych co pozwoli zaobserwować wpływ (lub brak wpływu) 
@@ -67,6 +67,6 @@ rozpowszechnianiem się kryptowalut będą one coraz bardziej restrykcyjnie trak
 
 ## Technologia
 
-Oprogramowanie: *SAS® University Edition*
+Oprogramowanie: *SAS® ON DEMAND*
 
 Wersja: *9.4_M6*
